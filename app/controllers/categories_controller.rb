@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: %i[show update destroy]
+    # has_and_belongs_to_many :tasks
   
     def index
       categories = Category.where(user_id: params[:user_id])
@@ -22,7 +23,7 @@ class CategoriesController < ApplicationController
     end
   
     def category_params
-      params.require(:category).permit(:name, :user_id)
+      params.require(:category).permit(:name, :color, :user_id)
     end
   end
   
